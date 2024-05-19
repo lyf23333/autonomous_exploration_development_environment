@@ -59,7 +59,7 @@ bool systemInited = false;
 
 float vehicleYaw = 0;
 float vehicleX = 0, vehicleY = 0, vehicleZ = 0;
-float exploredVolume = 0, travelingDis = 0, runtime = 0, timeDuration = 0;
+float exploredVolume = 0, travelingDis = 0, runtime = 0, timeDuration = 0, planningtime = 0;
 
 pcl::VoxelGrid<pcl::PointXYZ> overallMapDwzFilter;
 pcl::VoxelGrid<pcl::PointXYZI> exploredAreaDwzFilter;
@@ -191,7 +191,7 @@ void laserCloudHandler(const sensor_msgs::PointCloud2ConstPtr& laserCloudIn)
     exploredAreaDisplayCount = 0;
   }
 
-  fprintf(metricFilePtr, "%f %f %f %f\n", exploredVolume, travelingDis, runtime, timeDuration);
+  fprintf(metricFilePtr, "%f %f %f %f %f\n", exploredVolume, travelingDis, runtime, planningtime, timeDuration);
 
   std_msgs::Float32 exploredVolumeMsg;
   exploredVolumeMsg.data = exploredVolume;
@@ -205,6 +205,11 @@ void laserCloudHandler(const sensor_msgs::PointCloud2ConstPtr& laserCloudIn)
 void runtimeHandler(const std_msgs::Float32::ConstPtr& runtimeIn)
 {
   runtime = runtimeIn->data;
+}
+
+void planningtimeHandler(const std_msgs::Float32::ConstPtr& planningtimeIn)
+{
+  planningtime = planningtimeIn->data;
 }
 
 int main(int argc, char** argv)
@@ -229,6 +234,8 @@ int main(int argc, char** argv)
   ros::Subscriber subLaserCloud = nh.subscribe<sensor_msgs::PointCloud2> ("/registered_scan", 5, laserCloudHandler);
 
   ros::Subscriber subRuntime = nh.subscribe<std_msgs::Float32> ("/runtime", 5, runtimeHandler);
+
+  ros::Subscriber subPlanningtime = nh.subscribe<std_msgs::Float32> ("/planning_time", 5, planningtimeHandler);
 
   ros::Publisher pubOverallMap = nh.advertise<sensor_msgs::PointCloud2> ("/overall_map", 5);
 
