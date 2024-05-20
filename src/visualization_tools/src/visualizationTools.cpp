@@ -31,6 +31,7 @@ const double PI = 3.1415926;
 string metricFile;
 string trajFile;
 string mapFile;
+string run_name;
 double overallMapVoxelSize = 0.5;
 double exploredAreaVoxelSize = 0.3;
 double exploredVolumeVoxelSize = 0.5;
@@ -218,6 +219,7 @@ int main(int argc, char** argv)
   ros::NodeHandle nh;
   ros::NodeHandle nhPrivate = ros::NodeHandle("~");
 
+  nhPrivate.getParam("run_name", run_name);
   nhPrivate.getParam("metricFile", metricFile);
   nhPrivate.getParam("trajFile", trajFile);
   nhPrivate.getParam("mapFile", mapFile);
@@ -277,8 +279,8 @@ int main(int argc, char** argv)
   string timeString = to_string(1900 + ltm->tm_year) + "-" + to_string(1 + ltm->tm_mon) + "-" + to_string(ltm->tm_mday) + "-" +
                       to_string(ltm->tm_hour) + "-" + to_string(ltm->tm_min) + "-" + to_string(ltm->tm_sec);
 
-  metricFile += "_" + timeString + ".txt";
-  trajFile += "_" + timeString + ".txt";
+  metricFile += "_" + timeString + "_" + run_name + ".txt";
+  trajFile += "_" + timeString + "_" + run_name + ".txt";
   metricFilePtr = fopen(metricFile.c_str(), "w");
   trajFilePtr = fopen(trajFile.c_str(), "w");
 

@@ -1,6 +1,7 @@
 <launch>
 
   <arg name="world_name" default="garage"/>
+  <arg name="run_name" default=""/>
 
   <node pkg="visualization_tools" type="visualizationTools" name="visualizationTools" output="screen">
     <param name="metricFile" type="string" value="$(find vehicle_simulator)/log/metrics" />
@@ -13,6 +14,7 @@
     <param name="yawInterval" type="double" value="10.0" />
     <param name="overallMapDisplayInterval" type="int" value="2" />
     <param name="exploredAreaDisplayInterval" type="int" value="1" />
+    <param name="run_name" type="string" value="$(arg run_name)" />
   </node>
 
   <node pkg="visualization_tools" type="realTimePlot.py" name="realTimePlot" output="screen" respawn="true"/>

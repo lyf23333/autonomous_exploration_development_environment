@@ -9,6 +9,7 @@
   <arg name="vehicleYaw" default="0"/>
   <arg name="gazebo_gui" default="false"/>
   <arg name="checkTerrainConn" default="false"/>
+  <arg name="run_name" default="indoor"/>
 
   <include file="$(find ps3joy)/launch/ps3.launch" />
 
@@ -39,6 +40,7 @@
 
   <include file="$(find visualization_tools)/launch/visualization_tools.launch" >
     <arg name="world_name" value="$(arg world_name)"/>
+    <arg name="run_name" value="$(arg run_name)"/>
   </include>
 
   <node launch-prefix="nice" pkg="rviz" type="rviz" name="rvizGA" args="-d $(find vehicle_simulator)/rviz/vehicle_simulator.rviz" respawn="true"/>
