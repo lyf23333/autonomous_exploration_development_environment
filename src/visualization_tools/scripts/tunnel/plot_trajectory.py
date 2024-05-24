@@ -46,7 +46,8 @@ def point_cloud_publisher():
                   "trajectory_2024-5-22-21-48-42_run_1.txt",
                   "trajectory_2024-5-22-22-14-55_run_2.txt",
                   "trajectory_2024-5-22-22-31-59_run_3.txt",
-                  "trajectory_2024-5-22-23-22-45_run_4.txt"]  # Path to the text files
+                  "trajectory_2024-5-22-23-22-45_run_4.txt",
+                  "trajectory_2024-5-23-0-0-19_run_5.txt"]  # Path to the text files
     color_list = [
                     [204, 0, 0],
                     [245, 121, 0],
