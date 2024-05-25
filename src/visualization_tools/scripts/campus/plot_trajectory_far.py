@@ -40,14 +40,12 @@ def convert_to_point_cloud2(points, color):
 def point_cloud_publisher():
     rospy.init_node('point_cloud_publisher', anonymous=True)
 
-    home_path = "/home/yifa/paper/autonomous_exploration_development_environment/src/vehicle_simulator/log/indoor"
+    home_path = "/home/yifa/paper/autonomous_exploration_development_environment/src/vehicle_simulator/log/campus"
     files_path = ['trajectory_2024-5-21-23-4-24_run_0.txt',
-                #   'trajectory_2024-5-21-8-12-58_bad_example.txt',
-                  "trajectory_2024-5-21-23-19-25_run_1.txt",
-                  "trajectory_2024-5-22-8-36-43_run_2.txt",
-                  "trajectory_2024-5-22-8-42-13_run_3.txt",
-                  "trajectory_2024-5-22-8-49-34_run_4.txt",
-                  "trajectory_2024-5-22-20-56-16_run_5.txt"]  # Path to the text files
+                  "trajectory_2024-5-25-8-33-43_run_1.txt",
+                  "trajectory_2024-5-25-8-46-26_run_2.txt",
+                  "trajectory_2024-5-25-9-0-30_run_3.txt",
+                  "trajectory_2024-5-25-9-15-46_run_4.txt"]  # Path to the text files
     color_list = [
                     [204, 0, 0],
                     [245, 121, 0],
