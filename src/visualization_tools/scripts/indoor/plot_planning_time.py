@@ -44,7 +44,12 @@ plt.plot(total_run_time, total_data, label='LBPlanner')
 plt.plot(total_run_time_far, total_data_far, label='FARPlanner')
 plt.xlabel('Time [s]')
 plt.ylabel('Planning time [ms]')
-plt.title('Planning time in indoor env')
 plt.legend()
+
+frame_color = 'lightgrey'
+ax = plt.gca()
+for spine in ax.spines.values():
+    spine.set_edgecolor(frame_color)
+
 plt.grid(True)
 plt.show()
