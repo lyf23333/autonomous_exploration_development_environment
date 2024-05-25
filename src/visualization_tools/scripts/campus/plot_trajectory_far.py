@@ -41,7 +41,7 @@ def point_cloud_publisher():
     rospy.init_node('point_cloud_publisher', anonymous=True)
 
     home_path = "/home/yifa/paper/autonomous_exploration_development_environment/src/vehicle_simulator/log/campus"
-    files_path = ['trajectory_2024-5-21-23-4-24_run_0.txt',
+    files_path = ['trajectory_2024-5-25-8-28-56_run_0.txt',
                   "trajectory_2024-5-25-8-33-43_run_1.txt",
                   "trajectory_2024-5-25-8-46-26_run_2.txt",
                   "trajectory_2024-5-25-9-0-30_run_3.txt",
