@@ -51,11 +51,15 @@ ax.bar(indices + bar_width, travel_times_method2, bar_width, label='FARPlanner',
 # Set labels and title
 ax.set_xlabel('Waypoint')
 ax.set_ylabel('Travel Time [s]')
-ax.set_title('Travel Time per Waypoint for Two Methods')
+# ax.set_title('Travel Time per Waypoint for indoor scanario')
 ax.set_xticks(indices + bar_width / 2)
 ax.set_yticks(np.arange(0, 501, 100))
 ax.set_xticklabels(waypoints)
 ax.legend()
+
+frame_color = 'lightgrey'
+for spine in ax.spines.values():
+    spine.set_edgecolor(frame_color)
 
 # Show the plot
 plt.tight_layout()

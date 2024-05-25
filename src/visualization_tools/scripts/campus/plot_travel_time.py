@@ -11,26 +11,24 @@ def read_time(home_path, files_list):
         
     return travel_times
 
-home_path = "/home/yifa/git/swiss_mile/navigation/rl_global_planner/log/indoor"
-files_list = ["metrics_2024-5-20-23-24-13_run_0.txt",
-              "metrics_2024-5-21-21-29-38_run_1.txt",
-              "metrics_2024-5-21-21-41-38_run_2.txt",
-              "metrics_2024-5-21-21-52-20_run_3.txt",
-              "metrics_2024-5-21-21-59-11_run_4.txt",
-              "metrics_2024-5-21-22-24-8_run_5.txt"]
+home_path = "/home/yifa/git/swiss_mile/navigation/rl_global_planner/log/campus"
+files_list = ["metrics_2024-5-24-13-19-23_run_0.txt",
+              "metrics_2024-5-24-14-16-43_run_1.txt",
+              "metrics_2024-5-24-16-34-22_run_2.txt",
+              "metrics_2024-5-24-16-54-3_run_3.txt",
+              "metrics_2024-5-24-17-8-6_run_4.txt"]
 travel_times = read_time(home_path, files_list)
 
-home_path_far = "/home/yifa/paper/autonomous_exploration_development_environment/src/vehicle_simulator/log/indoor"
-files_list_far = ["metrics_2024-5-21-23-4-24_run_0.txt",
-              "metrics_2024-5-21-23-19-25_run_1.txt",
-              "metrics_2024-5-22-8-36-43_run_2.txt",
-              "metrics_2024-5-22-8-42-13_run_3.txt",
-              "metrics_2024-5-22-8-49-34_run_4.txt",
-              "metrics_2024-5-22-20-56-16_run_5.txt"]
+home_path_far = "/home/yifa/paper/autonomous_exploration_development_environment/src/vehicle_simulator/log/campus"
+files_list_far = ["metrics_2024-5-25-8-28-56_run_0.txt",
+              "metrics_2024-5-25-8-33-43_run_1.txt",
+              "metrics_2024-5-25-8-46-26_run_2.txt",
+              "metrics_2024-5-25-9-0-30_run_3.txt",
+              "metrics_2024-5-25-9-15-46_run_4.txt"]
 travel_times_far = read_time(home_path_far, files_list_far)
 
 # Example NumPy arrays
-waypoints = np.array([1, 2, 3, 4, 5, 6])
+waypoints = np.array([1, 2, 3, 4, 5])
 travel_times_method1 = np.array(travel_times)
 travel_times_method2 = np.array(travel_times_far)
 
