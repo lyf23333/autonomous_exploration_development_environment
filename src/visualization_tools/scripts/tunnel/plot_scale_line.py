@@ -19,7 +19,7 @@ def create_text_marker(text, x, y, z, marker_id):
     marker.pose.orientation.y = 0.0
     marker.pose.orientation.z = 0.0
     marker.pose.orientation.w = 1.0
-    marker.scale.z = 5  # Height of the text
+    marker.scale.z = 10  # Height of the text
     marker.color.a = 1.0  # Transparency
     marker.color.r = 0.8  # Red
     marker.color.g = 0.2  # Green
@@ -58,24 +58,24 @@ def scale_visualization_publisher():
 
     marker_array = MarkerArray()
 
-    scale_length=35
-    x_start = -20
-    y_start = 80
+    scale_length=100
+    x_start = 200
+    y_start = 0
     line_width = 1.0
 
     # Text Marker
     text = f"{scale_length}m"
-    text_marker = create_text_marker(text, x_start + scale_length/2, y_start + 5, 1.0, 0)
+    text_marker = create_text_marker(text, x_start + 5, y_start + scale_length/2 , 1.0, 0)
     marker_array.markers.append(text_marker)
 
     # Line Marker
-    line_marker1 = create_line_marker(x_start, y_start, x_start + float(scale_length), y_start, 0.5, 1, line_width)
+    line_marker1 = create_line_marker(x_start, y_start, x_start , y_start + float(scale_length), 0.5, 1, line_width)
     marker_array.markers.append(line_marker1)
 
-    line_marker2 = create_line_marker(x_start, y_start - line_width/2, x_start, y_start + line_width/2 +1, 0.5, 2, line_width)
+    line_marker2 = create_line_marker(x_start - line_width/2, y_start , x_start + line_width/2 +1, y_start , 0.5, 2, line_width)
     marker_array.markers.append(line_marker2)
 
-    line_marker3 = create_line_marker(x_start  + float(scale_length), y_start - line_width/2, x_start + float(scale_length), y_start  + line_width/2 +1, 0.5, 3, line_width)
+    line_marker3 = create_line_marker(x_start - line_width/2, y_start  + float(scale_length), x_start + line_width/2 +1, y_start  + float(scale_length), 0.5, 3, line_width)
     marker_array.markers.append(line_marker3)
 
     while not rospy.is_shutdown():

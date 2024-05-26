@@ -19,7 +19,7 @@ def create_text_marker(text, x, y, z, marker_id):
     marker.pose.orientation.y = 0.0
     marker.pose.orientation.z = 0.0
     marker.pose.orientation.w = 1.0
-    marker.scale.z = 5  # Height of the text
+    marker.scale.z = 10  # Height of the text
     marker.color.a = 1.0  # Transparency
     marker.color.r = 0.8  # Red
     marker.color.g = 0.2  # Green
@@ -58,9 +58,9 @@ def scale_visualization_publisher():
 
     marker_array = MarkerArray()
 
-    scale_length=35
-    x_start = -20
-    y_start = 80
+    scale_length=100
+    x_start = -200
+    y_start = 140
     line_width = 1.0
 
     # Text Marker

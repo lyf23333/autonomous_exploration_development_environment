@@ -44,9 +44,9 @@ def create_text_marker(text, x, y, z, marker_id):
     marker.pose.orientation.y = 0.0
     marker.pose.orientation.z = 0.0
     marker.pose.orientation.w = 1.0
-    marker.scale.x = 10
-    marker.scale.y = 10
-    marker.scale.z = 10  # Height of the text
+    marker.scale.x = 15
+    marker.scale.y = 15
+    marker.scale.z = 15  # Height of the text
     marker.color.a = 1.0  # Transparency
     marker.color.r = 1.0
     marker.color.g = 0.0
@@ -65,7 +65,7 @@ def circle_publisher():
     rate = rospy.Rate(1)  # 1 Hz
     marker_array_names = MarkerArray()
     
-    radius = 1.5
+    radius = 3.0
     positions_list = [
         [0.0, 0.0, 0.0],
         [149.7, -100.6, 0],

@@ -60,7 +60,7 @@ def scale_visualization_publisher():
 
     scale_length=35
     x_start = -20
-    y_start = 80
+    y_start = 70
     line_width = 1.0
 
     # Text Marker
