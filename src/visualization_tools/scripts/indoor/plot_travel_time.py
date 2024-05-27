@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
+plt.rcParams.update({'font.size': 16})
+
 def read_time(home_path, files_list):
     # Read the file and extract the first column
     travel_times = []
@@ -42,20 +44,20 @@ bar_width = 0.35
 indices = np.arange(len(waypoints))
 
 # Create figure and axes
-fig, ax = plt.subplots(figsize=(12, 5))
+fig, ax = plt.subplots(figsize=(7.68, 2.5))
 
 # Plot each method's travel times
-ax.bar(indices, travel_times_method1, bar_width, label='LBPlanner', color = '#a00000')
-ax.bar(indices + bar_width, travel_times_method2, bar_width, label='FARPlanner', color = '#1a80bb')
+ax.bar(indices, travel_times_method1, bar_width, label='LB', color = '#a00000')
+ax.bar(indices + bar_width, travel_times_method2, bar_width, label='FAR', color = '#1a80bb')
 
 # Set labels and title
-ax.set_xlabel('Waypoint')
+# ax.set_xlabel('Waypoint')
 ax.set_ylabel('Travel Time [s]')
 # ax.set_title('Travel Time per Waypoint for indoor scanario')
 ax.set_xticks(indices + bar_width / 2)
 ax.set_yticks(np.arange(0, 501, 100))
 ax.set_xticklabels(waypoints)
-ax.legend()
+ax.legend(loc='upper right')
 
 frame_color = 'lightgrey'
 for spine in ax.spines.values():

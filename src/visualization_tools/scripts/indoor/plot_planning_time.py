@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+plt.rcParams.update({'font.size': 16})
 
 def read_time(home_path, files_list):
     # Read the file and extract the first column
@@ -39,12 +40,13 @@ files_list_far = ["metrics_2024-5-21-23-4-24_run_0.txt",
 total_data_far, total_run_time_far = read_time(home_path_far, files_list_far)
 
 # Plot the first column
-plt.figure()
-plt.plot(total_run_time, total_data, label='LBPlanner')
-plt.plot(total_run_time_far, total_data_far, label='FARPlanner')
-plt.xlabel('Time [s]')
-plt.ylabel('Planning time [ms]')
-plt.legend()
+fig = plt.figure(figsize=(7.68, 2.5))
+ax = plt.subplot()
+ax.plot(total_run_time, total_data, label='LB', color = '#a00000')
+ax.plot(total_run_time_far, total_data_far, label='FAR', color = '#1a80bb')
+ax.set_xlabel('Time [s]')
+ax.set_ylabel('Planning time [ms]')
+plt.tight_layout()  # Adjusts the layout
 
 frame_color = 'lightgrey'
 ax = plt.gca()
