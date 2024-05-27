@@ -21,7 +21,7 @@ def create_circle_marker(x, y, z, radius, marker_id):
     marker.pose.orientation.w = 1.0
     marker.scale.x = radius * 2  # Diameter
     marker.scale.y = radius * 2  # Diameter
-    marker.scale.z = 0.01  # Small thickness to represent a circle
+    marker.scale.z = 1.0  # Small thickness to represent a circle
     marker.color.a = 1.0  # Transparency
     marker.color.r = 1.0
     marker.color.g = 0.0
