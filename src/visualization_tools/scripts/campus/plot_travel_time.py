@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
+plt.rcParams.update({'font.size': 14})
+
 def read_time(home_path, files_list):
     # Read the file and extract the first column
     travel_times = []
@@ -28,7 +30,9 @@ files_list_far = ["metrics_2024-5-25-8-28-56_run_0.txt",
 travel_times_far = read_time(home_path_far, files_list_far)
 
 # Example NumPy arrays
-waypoints = np.array([1, 2, 3, 4, 5])
+waypoints = np.array([1, 2, 3, 4, 5, 6])
+travel_times.append(0)
+travel_times_far.append(0)
 travel_times_method1 = np.array(travel_times)
 travel_times_method2 = np.array(travel_times_far)
 
@@ -40,20 +44,22 @@ bar_width = 0.35
 indices = np.arange(len(waypoints))
 
 # Create figure and axes
-fig, ax = plt.subplots(figsize=(12, 5))
+fig, ax = plt.subplots(figsize=(7.68, 2.5))
 
 # Plot each method's travel times
-ax.bar(indices, travel_times_method1, bar_width, label='LBPlanner', color = '#a00000')
-ax.bar(indices + bar_width, travel_times_method2, bar_width, label='FARPlanner', color = '#1a80bb')
+ax.bar(indices, travel_times_method1, bar_width, label='LB', color = '#298c8c')
+ax.bar(indices + bar_width, travel_times_method2, bar_width, label='FAR', color = '#800074')
 
 # Set labels and title
-ax.set_xlabel('Waypoint')
 ax.set_ylabel('Travel Time [s]')
-ax.set_title('Travel Time per Waypoint for Two Methods')
-ax.set_xticks(indices + bar_width / 2)
+ax.set_xticks(indices[:5] + bar_width / 2)
 ax.set_yticks(np.arange(0, 501, 100))
-ax.set_xticklabels(waypoints)
-ax.legend()
+ax.set_xticklabels(waypoints[:5])
+ax.legend(loc='upper right')
+
+frame_color = 'lightgrey'
+for spine in ax.spines.values():
+    spine.set_edgecolor(frame_color)
 
 # Show the plot
 plt.tight_layout()
