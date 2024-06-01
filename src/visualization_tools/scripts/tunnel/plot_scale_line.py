@@ -59,23 +59,23 @@ def scale_visualization_publisher():
     marker_array = MarkerArray()
 
     scale_length=100
-    x_start = 200
-    y_start = 0
+    x_start = 10
+    y_start = -130
     line_width = 1.0
 
-    # Text Marker
-    text = f"{scale_length}m"
-    text_marker = create_text_marker(text, x_start + 5, y_start + scale_length/2 , 1.0, 0)
-    marker_array.markers.append(text_marker)
+    # # Text Marker
+    # text = f"{scale_length}m"
+    # text_marker = create_text_marker(text, x_start + 5, y_start + scale_length/2 , 1.0, 0)
+    # marker_array.markers.append(text_marker)
 
     # Line Marker
     line_marker1 = create_line_marker(x_start, y_start, x_start , y_start + float(scale_length), 0.5, 1, line_width)
     marker_array.markers.append(line_marker1)
 
-    line_marker2 = create_line_marker(x_start - line_width/2, y_start , x_start + line_width/2 +1, y_start , 0.5, 2, line_width)
+    line_marker2 = create_line_marker(x_start - line_width/2-1, y_start , x_start + line_width/2 , y_start , 0.5, 2, line_width)
     marker_array.markers.append(line_marker2)
 
-    line_marker3 = create_line_marker(x_start - line_width/2, y_start  + float(scale_length), x_start + line_width/2 +1, y_start  + float(scale_length), 0.5, 3, line_width)
+    line_marker3 = create_line_marker(x_start - line_width/2-1, y_start  + float(scale_length), x_start + line_width/2 , y_start  + float(scale_length), 0.5, 3, line_width)
     marker_array.markers.append(line_marker3)
 
     while not rospy.is_shutdown():

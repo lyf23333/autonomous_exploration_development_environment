@@ -82,20 +82,20 @@ def scale_visualization_publisher():
 
     marker_array = MarkerArray()
 
-    scale_length=35
+    scale_length=30
     x_start = -20
-    y_start = 70
+    y_start = 60
     line_width = 1.0
 
-    # Text Marker
-    text = f"{scale_length}m"
-    text_marker = create_text_marker(text, x_start + scale_length/2 + 5, y_start + 5, 10, 0)
-    marker_array.markers.append(text_marker)
+    # # Text Marker
+    # text = f"{scale_length}m"
+    # text_marker = create_text_marker(text, x_start + scale_length/2 + 5, y_start + 5, 10, 0)
+    # marker_array.markers.append(text_marker)
 
-    # Text Marker
-    text = "Ours"
-    text_marker = create_text_marker_planner(text, x_start + scale_length/2 + 140, y_start + 5, 15, 5)
-    marker_array.markers.append(text_marker)
+    # # Text Marker
+    # text = "Ours"
+    # text_marker = create_text_marker_planner(text, x_start + scale_length/2 + 140, y_start + 5, 15, 5)
+    # marker_array.markers.append(text_marker)
 
     # Line Marker
     line_marker1 = create_line_marker(x_start, y_start, x_start + float(scale_length), y_start, 0.5, 1, line_width)

@@ -21,7 +21,7 @@ def create_circle_marker(x, y, z, radius, marker_id):
     marker.pose.orientation.w = 1.0
     marker.scale.x = radius * 2  # Diameter
     marker.scale.y = radius * 2  # Diameter
-    marker.scale.z = 0.01  # Small thickness to represent a circle
+    marker.scale.z = 1  # Small thickness to represent a circle
     marker.color.a = 1.0  # Transparency
     marker.color.r = 1.0
     marker.color.g = 0.0
@@ -68,9 +68,9 @@ def circle_publisher():
     radius = 3.0
     positions_list = [
         [0.0, 0.0, 0.0],
-        [-65.2, 34.5, 0.0],
+        [-65.2, 34.5, 0.5],
         [87.2, -62.5, 0.0],
-        [-144, -74.5, 0.0],
+        [-144, -74.5, 13.0],
         [-4.1, -49.3, 0.0],
         [20.9, 78.8, 0.0]
     ]
