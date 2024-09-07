@@ -213,7 +213,7 @@ int main(int argc, char** argv)
   nhPrivate.getParam("autonomySpeed", autonomySpeed);
   nhPrivate.getParam("joyToSpeedDelay", joyToSpeedDelay);
 
-  ros::Subscriber subOdom = nh.subscribe<nav_msgs::Odometry> ("/state_estimation", 5, odomHandler);
+  ros::Subscriber subOdom = nh.subscribe<nav_msgs::Odometry> ("/rl_global_planner/odom", 5, odomHandler);
 
   ros::Subscriber subPath = nh.subscribe<nav_msgs::Path> ("/path", 5, pathHandler);
 

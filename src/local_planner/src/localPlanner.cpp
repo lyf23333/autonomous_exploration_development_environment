@@ -537,7 +537,7 @@ int main(int argc, char** argv)
   nhPrivate.getParam("goalY", goalY);
 
   ros::Subscriber subOdometry = nh.subscribe<nav_msgs::Odometry>
-                                ("/state_estimation", 5, odometryHandler);
+                                ("/rl_global_planner/odom", 5, odometryHandler);
 
   ros::Subscriber subLaserCloud = nh.subscribe<sensor_msgs::PointCloud2>
                                   ("/registered_scan", 5, laserCloudHandler);

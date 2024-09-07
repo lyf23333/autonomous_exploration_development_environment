@@ -171,7 +171,7 @@ int main(int argc, char** argv)
   nhPrivate.getParam("sendSpeed", sendSpeed);
   nhPrivate.getParam("sendBoundary", sendBoundary);
 
-  ros::Subscriber subPose = nh.subscribe<nav_msgs::Odometry> ("/state_estimation", 5, poseHandler);
+  ros::Subscriber subPose = nh.subscribe<nav_msgs::Odometry> ("/rl_global_planner/odom", 5, poseHandler);
 
   ros::Publisher pubWaypoint = nh.advertise<geometry_msgs::PointStamped> ("/way_point", 5);
   geometry_msgs::PointStamped waypointMsgs;

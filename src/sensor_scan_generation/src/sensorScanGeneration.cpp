@@ -104,7 +104,7 @@ int main(int argc, char** argv)
   typedef message_filters::sync_policies::ApproximateTime<nav_msgs::Odometry, sensor_msgs::PointCloud2> syncPolicy;
   typedef message_filters::Synchronizer<syncPolicy> Sync;
   boost::shared_ptr<Sync> sync_;
-  subOdometry.subscribe(nh, "/state_estimation", 1);
+  subOdometry.subscribe(nh, "/rl_global_planner/odom", 1);
   subLaserCloud.subscribe(nh, "/registered_scan", 1);
   sync_.reset(new Sync(syncPolicy(100), subOdometry, subLaserCloud));
   sync_->registerCallback(boost::bind(laserCloudAndOdometryHandler, _1, _2));

@@ -333,7 +333,8 @@ int main(int argc, char** argv)
 
   ros::Subscriber subSpeed = nh.subscribe<geometry_msgs::TwistStamped>("/cmd_vel", 5, speedHandler);
 
-  ros::Publisher pubVehicleOdom = nh.advertise<nav_msgs::Odometry>("/state_estimation", 5);
+  // ros::Publisher pubVehicleOdom = nh.advertise<nav_msgs::Odometry>("/state_estimation", 5);
+  ros::Subscriber subOdometry = nh.subscribe<nav_msgs::Odometry> ("/rl_global_planner/odom", 5, odometryHandler);
 
   nav_msgs::Odometry odomData;
   odomData.header.frame_id = "map";
