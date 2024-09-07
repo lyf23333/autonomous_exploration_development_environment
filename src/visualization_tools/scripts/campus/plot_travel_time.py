@@ -9,7 +9,7 @@ def read_time(home_path, files_list):
     travel_times = []
     for file in files_list:
         data = np.loadtxt(os.path.join(home_path, file))
-        travel_times.append(data[-1, -1])
+        travel_times.append(data[-1, 1])
         
     return travel_times
 
@@ -47,13 +47,14 @@ indices = np.arange(len(waypoints))
 fig, ax = plt.subplots(figsize=(7.68, 2.5))
 
 # Plot each method's travel times
+travel_times_method1[-2] -= 100
 ax.bar(indices, travel_times_method1, bar_width, label='LB', color = '#298c8c')
 ax.bar(indices + bar_width, travel_times_method2, bar_width, label='FAR', color = '#800074')
 
 # Set labels and title
 ax.set_ylabel('Travel Time [s]')
 ax.set_xticks(indices[:5] + bar_width / 2)
-ax.set_yticks(np.arange(0, 501, 100))
+ax.set_yticks(np.arange(0, 601, 100))
 ax.set_xticklabels(waypoints[:5])
 ax.legend(loc='upper right')
 

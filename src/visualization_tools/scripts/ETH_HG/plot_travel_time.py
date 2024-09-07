@@ -9,7 +9,7 @@ def read_time(home_path, files_list):
     travel_times = []
     for file in files_list:
         data = np.loadtxt(os.path.join(home_path, file))
-        travel_times.append(data[-1, 1])
+        travel_times.append(data[-1, -1])
         
     return travel_times
 
